@@ -1,0 +1,43 @@
+{% extends 'reader/base.html' %}
+
+{% block title %}Home - सरल Yatra{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="masthead">
+
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">सरल Yatra</h1>
+                <a class="btn btn-primary" href="{% url 'initialProfile' %}">Scan Pay</a>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'reader/script.js' %}"></script>
+
+
+</header>
+
+
+<!-- Display Passenger Details -->
+
+
+<script>
+    function closeDetails() {
+        // Add logic to close the details card, e.g., hide or remove it from the DOM
+        document.querySelector('.card').style.display = 'none';
+    }
+</script>
+{% if passenger %}
+<div>
+    <h2>Passenger Details:</h2>
+    <p>ID: {{ passenger.passengerID }}</p>
+    <p>Name: {{ passenger.full_name }}</p>
+    <p>Age: {{ passenger.age }}</p>
+    <!-- Add other fields as needed -->
+</div>
+{% endif %}
+{% endblock %}
